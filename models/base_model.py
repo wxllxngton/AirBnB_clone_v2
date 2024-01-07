@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+e#!/usr/bin/python3
 """This module defines a base class for all models in our hbnb clone"""
 import os
 import uuid
@@ -7,7 +7,7 @@ from sqlalchemy import Column, String, DATETIME
 from sqlalchemy.orm import declarative_base
 
 
-Base = declarative_base()
+Base = declarative_base(extend_existing=True)
 
 
 class BaseModel:
