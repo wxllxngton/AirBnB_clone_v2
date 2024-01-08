@@ -27,9 +27,7 @@ class FileStorage:
         """Returns a dictionary of models currently in storage."""
         if cls is not None:
             filtered_objects = {
-                k: v
-                for k, v in FileStorage.__objects.items()
-                if isinstance(v, cls)
+                k: v for k, v in FileStorage.__objects.items() if isinstance(v, cls)
             }
             return filtered_objects
         return FileStorage.__objects
@@ -57,10 +55,7 @@ class FileStorage:
                         obj = cls(**val)
                         FileStorage.__objects[key] = obj
                     else:
-                        print(
-                            f"Warning: Class {cls_name}"
-                            + "not found during reload."
-                        )
+                        print(f"Warning: Class {cls_name}" + "not found during reload.")
         except FileNotFoundError:
             pass
 
