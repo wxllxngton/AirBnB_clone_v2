@@ -7,7 +7,7 @@ from sqlalchemy import Column, String, DATETIME
 from sqlalchemy.orm import declarative_base
 
 
-Base = declarative_base(extend_existing=True)
+Base = declarative_base()
 
 
 class BaseModel:
