@@ -4,7 +4,7 @@ import os
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String
 
-from .base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 
 
 class Amenity(BaseModel, Base):
