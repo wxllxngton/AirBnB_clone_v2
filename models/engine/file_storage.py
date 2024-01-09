@@ -57,7 +57,7 @@ class FileStorage:
                         obj = cls(**val)
                         FileStorage.__objects[key] = obj
                     else:
-                        print(f"Warning: Class {cls_name}" +\
+                        print(f"Warning: Class {cls_name}" +
                               "not found during reload.")
         except FileNotFoundError:
             pass
