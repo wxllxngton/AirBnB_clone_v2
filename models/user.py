@@ -32,12 +32,16 @@ class User(BaseModel, Base):
         else ""
     )
     places = (
-        relationship("Place", cascade="all, delete, delete-orphan", backref="user")
+        relationship("Place",
+                     cascade="all, delete, delete-orphan",
+                     backref="user")
         if os.getenv("HBNB_TYPE_STORAGE") == "db"
         else None
     )
     reviews = (
-        relationship("Review", cascade="all, delete, delete-orphan", backref="user")
+        relationship("Review",
+                     cascade="all, delete, delete-orphan",
+                     backref="user")
         if os.getenv("HBNB_TYPE_STORAGE") == "db"
         else None
     )
