@@ -6,7 +6,7 @@ from models.engine.db_storage import DBStorage
 from models.engine.file_storage import FileStorage
 
 storage = DBStorage() if os.getenv("HBNB_TYPE_STORAGE") == "db"\
-	else FileStorage()
+    else FileStorage()
 """A unique switch between FileStorage/DBStorage instance for all models.
 """
 storage.reload()
