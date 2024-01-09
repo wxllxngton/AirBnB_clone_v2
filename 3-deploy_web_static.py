@@ -57,7 +57,9 @@ def do_deploy(archive_path):
         run("rm /tmp/{}".format(archive))
 
         # Move the contents of web_static to the release directory
-        run("mv {}/{}/web_static/* {}/{}/".format(path, folder[0], path, folder[0]))
+        run("mv {}/{}/web_static/* {}/{}/".format(path,
+                                                  folder[0],
+                                                  path, folder[0]))
 
         # Remove the web_static directory in the release directory
         run("rm -rf {}/{}/web_static".format(path, folder[0]))
