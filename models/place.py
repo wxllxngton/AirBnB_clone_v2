@@ -78,11 +78,11 @@ class Place(BaseModel, Base):
     )
     latitude = (
         Column(Float, nullable=True) if os.getenv("HBNB_TYPE_STORAGE") == "db"
-            else 0.0
+        else 0.0
     )
     longitude = (
         Column(Float, nullable=True) if os.getenv("HBNB_TYPE_STORAGE") == "db"
-            else 0.0
+        else 0.0
     )
     amenity_ids = []
     reviews = (
