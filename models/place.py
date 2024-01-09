@@ -77,14 +77,18 @@ class Place(BaseModel, Base):
         else 0
     )
     latitude = (
-        Column(Float, nullable=True) if os.getenv("HBNB_TYPE_STORAGE") == "db" else 0.0
+        Column(Float, nullable=True) if os.getenv("HBNB_TYPE_STORAGE") == "db"
+            else 0.0
     )
     longitude = (
-        Column(Float, nullable=True) if os.getenv("HBNB_TYPE_STORAGE") == "db" else 0.0
+        Column(Float, nullable=True) if os.getenv("HBNB_TYPE_STORAGE") == "db"
+            else 0.0
     )
     amenity_ids = []
     reviews = (
-        relationship("Review", cascade="all, delete, delete-orphan", backref="place")
+        relationship("Review",
+                     cascade="all, delete, delete-orphan",
+                     backref="place")
         if os.getenv("HBNB_TYPE_STORAGE") == "db"
         else None
     )
