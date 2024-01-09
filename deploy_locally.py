@@ -8,6 +8,7 @@ import os
 
 env.hosts = ['localhost']
 
+
 def do_deploy(archive_path):
     """
     Deploys the static page locally on the server.
@@ -31,10 +32,15 @@ def do_deploy(archive_path):
         local("mkdir -p {}/{}/".format(path, folder[0]))
 
         # Extract the archive into the release directory
-        local("tar -xzf ./versions/{} -C {}/{}/".format(new_archive, path, folder[0]))
+        local("tar -xzf ./versions/{} -C {}/{}/".format(new_archive,
+                                                        path,
+                                                        folder[0]))
 
         # Move the contents of web_static to the release directory
-        local("mv {}/{}/web_static/* {}/{}/".format(path, folder[0], path, folder[0]))
+        local("mv {}/{}/web_static/* {}/{}/".format(path,
+                                                    folder[0],
+                                                    path,
+                                                    folder[0]))
 
         # Remove the web_static directory in the release directory
         local("rm -rf {}/{}/web_static".format(path, folder[0]))
