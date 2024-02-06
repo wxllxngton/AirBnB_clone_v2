@@ -54,11 +54,7 @@ class DBStorage:
     def delete(self, obj=None):
         """Removes an object from the storage database"""
         if obj is not None:
-            self.__session.query(type(obj))
-            .filter(type(obj).id == obj.id)
-            .delete(
-                synchronize_session=False
-            )
+            self.__session.query(type(obj)).filter(type(obj).id == obj.id).delete(synchronize_session=False)
 
     def save(self):
         """Commits the session changes to database"""
@@ -84,4 +80,4 @@ class DBStorage:
 
     def close(self):
         """Closes the storage engine."""
-        self.__session.close()
+        self.__session.remove()
