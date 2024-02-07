@@ -8,17 +8,17 @@ from models import State, storage
 
 app = Flask(__name__)
 
-@app.route('/states_list', strict_slashes=False)
-def states_list():
+@app.route('/hbnb_filters', strict_slashes=False)
+def filters():
     """
-    Renders an HTML page with the states listed in alphabetical order.
+    Display a HTML page similar to 6-index.html from the static folder.
 
     Returns:
-        rendered_template (str): Rendered HTML template "7-states_list.html"
-        with the provided states sorted by state name.
+        str: Rendered HTML page.
     """
-    states = sorted(list(storage.all(State).values()), key=lambda x: x.name)
-    return render_template('7-states_list.html', states=states)
+    states = storage.all("State").values()
+    amenities = storage.all("Amenity").values()
+    return render_template('10-hbnb_filters.html', states=states, amenities=amenities)
 
 @app.teardown_appcontext
 def teardown_db(exception):
@@ -34,4 +34,4 @@ def teardown_db(exception):
     storage.close()
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host='0.0.0.0', port=5000)

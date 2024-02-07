@@ -13,6 +13,10 @@ def cities_by_states():
     """
     Renders an HTML page with the states and their cities
     listed in alphabetical order.
+
+    Returns:
+        rendered_template: Rendered HTML template "8-cities_by_states.html"
+        with the provided states.
     """
     states = sorted(list(storage.all(State).values()), key=lambda x: x.name)
     return render_template('8-cities_by_states.html', states=states)
@@ -20,7 +24,13 @@ def cities_by_states():
 @app.teardown_appcontext
 def teardown_db(exception):
     """
-    Closes the session on teardown.
+    Closes the session on teardown
+
+    Parameters:
+        exception (error): The error to be thrown
+
+    Returns:
+        None
     """
     storage.close()
 
