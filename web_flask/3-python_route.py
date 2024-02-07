@@ -51,7 +51,8 @@ def python_text(text="is cool"):
     Displays "Python " followed by the value of the text variable.
 
     Parameters:
-        text (str, optional): The text string to be printed. Defaults to "is cool".
+        text (str, optional): The text string to be printed.
+        Defaults to "is cool".
 
     Returns:
         str: The formatted message "Python {formatted_text}"

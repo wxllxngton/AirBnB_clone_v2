@@ -51,7 +51,8 @@ def python_text(text="is cool"):
     Displays "Python " followed by the value of the text variable.
 
     Parameters:
-        text (str, optional): The text string to be printed. Defaults to "is cool".
+        text (str, optional): The text string to be printed.
+        Defaults to "is cool".
 
     Returns:
         str: The formatted message "Python {formatted_text}"
@@ -71,11 +72,9 @@ def number_n(n):
     Returns:
         str: "{n} is a number" or "{n} is not a valid number."
     """
-    try:
-        n = int(n)
+    n = int(n)
+    if isinstance(n, int):
         return f"{n} is a number"
-    except ValueError:
-        return f"{n} is not a valid number"
 
 
 if __name__ == "__main__":
