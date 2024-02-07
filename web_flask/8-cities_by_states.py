@@ -12,14 +12,16 @@ app = Flask(__name__)
 def cities_by_states():
     """
     Renders an HTML page with the states and their cities
-    listed in alphabetical order
+    listed in alphabetical order.
     """
     states = sorted(list(storage.all(State).values()), key=lambda x: x.name)
     return render_template('8-cities_by_states.html', states=states)
 
 @app.teardown_appcontext
 def teardown_db(exception):
-    """Closes the session on teardown"""
+    """
+    Closes the session on teardown.
+    """
     storage.close()
 
 if __name__ == '__main__':
