@@ -61,7 +61,7 @@ def python_text(text="is cool"):
     return f"Python {formatted_text}"
 
 
-@app.route("/number/<n>", methods=["GET"], strict_slashes=False)
+@app.route("/number/<int:n>", methods=["GET"], strict_slashes=False)
 def number_n(n):
     """
     Displays "{n} is a number" only if n is an integer.
@@ -70,11 +70,9 @@ def number_n(n):
         n (str): The number to be checked.
 
     Returns:
-        str: "{n} is a number" or "{n} is not a valid number."
+        str: "{n} is a number"
     """
-    n = int(n)
-    if isinstance(n, int):
-        return f"{n} is a number"
+    return "{:d} is a number".format(n)
 
 
 if __name__ == "__main__":
